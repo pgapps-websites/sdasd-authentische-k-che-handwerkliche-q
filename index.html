@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sdasd – Authentische Küche, handwerkliche Qualität</title>
+  <meta name="description" content="sdasd: Wo Tradition trifft Genuss. Frische Zutaten, leidenschaftliche Küche und warmherziger Service.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --color-primary: #e6143a;
+      --color-secondary: #f49b0b;
+      --color-accent: #F5E6D3;
+      --color-background: #FFFBF7;
+      --color-text: #2A2A2A;
+      --color-text-muted: #6B7280;
+      --color-border: rgba(0,0,0,0.1);
+      --color-surface: #FFFFFF;
+      --font-heading: 'Playfair Display', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+    body { font-family: var(--font-body); color: var(--color-text); }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
+    .hero-text { font-size: clamp(4rem, 15vw, 18rem); line-height: 1.1; font-weight: 900; }
+    .nav-toggle { display: none; }
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-menu { display: none; }
+      .nav-menu.active { display: flex; }
+    }
+    .card-hover { transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1); }
+    .card-hover:hover { box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); transform: translateY(-4px); }
+    .icon-box { width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; font-size: 32px; }
+    .divider { height: 1px; background: var(--color-border); }
+    .section-spacing { padding: 80px 0; }
+    @media (max-width: 768px) {
+      .section-spacing { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body class="bg-[var(--color-background)]">
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-[var(--color-surface)] border-b" style="border-color: var(--color-border);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <div class="text-2xl font-bold" style="color: var(--color-primary); font-family: var(--font-heading);">
+        sdasd
+      </div>
+      <button class="nav-toggle text-2xl" onclick="document.querySelector('.nav-menu').classList.toggle('active')" style="color: var(--color-primary);">
+        ☰
+      </button>
+      <div class="nav-menu hidden md:flex gap-8 flex-col md:flex-row md:items-center absolute md:static top-16 left-0 right-0 bg-[var(--color-surface)] md:bg-transparent p-4 md:p-0 border-b md:border-0" style="border-color: var(--color-border);">
+        <a href="#about" class="font-medium hover:" style="color: var(--color-primary);">Über uns</a>
+        <a href="#menu" class="font-medium" style="color: var(--color-primary);">Angebot</a>
+        <a href="#gallery" class="font-medium" style="color: var(--color-primary);">Galerie</a>
+        <a href="#contact" class="font-medium" style="color: var(--color-primary);">Kontakt</a>
+        <button onclick="document.querySelector('#reservation').scrollIntoView({behavior:'smooth'})" class="px-6 py-2 rounded-lg font-medium text-white transition-all duration-300 hover:shadow-lg" style="background-color: var(--color-primary);">
+          Reservieren
+        </button>
+      </div>
+    </div>
+  </nav>
+  <!-- HERO SECTION -->
+  <section class="section-spacing relative flex items-center justify-center overflow-hidden" style="background-color: var(--color-background);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="hero-text font-black mb-6" style="color: var(--color-primary);">
+        Frisch auf den Tisch
+      </h1>
+      <p class="text-lg sm:text-xl mb-8 max-w-2xl mx-auto" style="color: var(--color-text-muted);">
+        Authentische Küche mit handwerklicher Qualität. Jedes Gericht ein Versprechen: Geschmack ohne Kompromisse.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button onclick="document.querySelector('#reservation').scrollIntoView({behavior:'smooth'})" class="px-8 py-4 rounded-lg font-semibold text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1" style="background-color: var(--color-primary);">
+          Tisch reservieren
+        </button>
+        <button onclick="document.querySelector('#menu').scrollIntoView({behavior:'smooth'})" class="px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-1" style="color: var(--color-primary); border: 2px solid var(--color-primary);">
+          Speisekarte ansehen
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- ABOUT SECTION -->
+  <section id="about" class="section-spacing" style="background-color: var(--color-surface);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="bg-[var(--color-background)] rounded-2xl aspect-[4/3] flex items-center justify-center" style="color: var(--color-text-muted);">
+            [Bild: restaurant-interior.jpg]
+          </div>
+        </div>
+        <div>
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6" style="color: var(--color-primary); font-family: var(--font-heading);">
+            Tradition trifft Genuss
+          </h2>
+          <p class="text-lg mb-6" style="color: var(--color-text);">
+            Seit 15 Jahren steht sdasd für authentische Küche und herzlichen Service. Wir arbeiten mit lokalen Lieferanten, verwenden nur frische Zutaten und bereiten jedes Gericht mit Leidenschaft zu.
+          </p>
+          <p class="text-lg mb-8" style="color: var(--color-text);">
+            Unser Restaurant ist mehr als nur ein Ort zum Essen – es ist ein Treffpunkt für Menschen, die gutes Essen und angenehme Gesellschaft schätzen.
+          </p>
+          <div class="flex gap-8">
+            <div>
+              <div class="text-3xl font-bold" style="color: var(--color-secondary);">15+</div>
+              <p style="color: var(--color-text-muted);">Jahre Erfahrung</p>
+            </div>
+            <div>
+              <div class="text-3xl font-bold" style="color: var(--color-secondary);">4.8★</div>
+              <p style="color: var(--color-text-muted);">Kundenbewertung</p>
+            </div>
+            <div>
+              <div class="text-3xl font-bold" style="color: var(--color-secondary);">200+</div>
+              <p style="color: var(--color-text-muted);">Stammgäste</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- SERVICES / OFFERINGS -->
+  <section id="menu" class="section-spacing" style="background-color: var(--color-primary);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl sm:text-5xl font-bold text-center mb-4" style="color: var(--color-accent); font-family: var(--font-heading);">
+        Unser Angebot
+      </h2>
+      <p class="text-center text-lg mb-16" style="color: var(--color-accent);">
+        Vier Wege, unser Restaurant zu erleben
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-[var(--color-secondary)] bg-opacity-20 p-8 rounded-xl card-hover" style="border: 1px solid var(--color-secondary);">
+          <div class="icon-box mb-4" style="color: var(--color-secondary); font-size: 40px;">
+            🍽️
+          </div>
+          <h3 class="text-2xl font-bold mb-3" style="color: var(--color-accent); font-family: var(--font-heading);">
+            Mittags-Menü
+          </h3>
+          <p style="color: var(--color-accent);">
+            Täglich wechselnde Spezialitäten. Schnell, frisch und bezahlbar.
+          </p>
+        </div>
+        <div class="bg-[var(--color-secondary)] bg-opacity-20 p-8 rounded-xl card-hover" style="border: 1px solid var(--color-secondary);">
+          <div class="icon-box mb-4" style="color: var(--color-secondary); font-size: 40px;">
+            ✨
+          </div>
+          <h3 class="text-2xl font-bold mb-3" style="color: var(--color-accent); font-family: var(--font-heading);">
+            À-la-carte Küche
+          </h3>
+          <p style="color: var(--color-accent);">
+            Klassische und moderne Gerichte nach Saison und Lust des Küchenchefs.
+          </p>
+        </div>
+        <div class="bg-[var(--color-secondary)] bg-opacity-20 p-8 rounded-xl card-hover" style="border: 1px solid var(--color-secondary);">
+          <div class="icon-box mb-4" style="color: var(--color-secondary); font-size: 40px;">
+            🎉
+          </div>
+          <h3 class="text-2xl font-bold mb-3" style="color: var(--color-accent); font-family: var(--font-heading);">
+            Private Events
+          </h3>
+          <p style="color: var(--color-accent);">
+            Hochzeiten, Geburtstage, Firmenfeste – wir gestalten Ihren besonderen Tag.
+          </p>
+        </div>
+        <div class="bg-[var(--color-secondary)] bg-opacity-20 p-8 rounded-xl card-hover" style="border: 1px solid var(--color-secondary);">
+          <div class="icon-box mb-4" style="color: var(--color-secondary); font-size: 40px;">
+            📦
+          </div>
+          <h3 class="text-2xl font-bold mb-3" style="color: var(--color-accent); font-family: var(--font-heading);">
+            Catering & Takeaway
+          </h3>
+          <p style="color: var(--color-accent);">
+            Gutes Essen für Zuhause. Frisch zubereitet, liebevoll verpackt.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- GALLERY -->
+  <section id="gallery" class="section-spacing" style="background-color: var(--color-background);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl sm:text-5xl font-bold text-center mb-4" style="color: var(--color-primary); font-family: var(--font-heading);">
+        Galerie
+      </h2>
+      <p class="text-center text-lg mb-16" style="color: var(--color-text-muted);">
+        Ein Blick in unsere Küche und ins Herz unseres Restaurants
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-[var(--color-surface)] rounded-xl overflow-hidden card-hover" style="aspect-ratio: 4/3;">
+          <div class="w-full h-full flex items-center justify-center" style="background-color: var(--color-surface); color: var(--color-text-muted);">
+            [Bild: dish-1.jpg]
+          </div>
+        </div>
+        <div class="bg-[var(--color-surface)] rounded-xl overflow-hidden card-hover" style="aspect-ratio: 4/3;">
+          <div class="w-full h-full flex items-center justify-center" style="background-color: var(--color-surface); color: var(--color-text-muted);">
+            [Bild: dish-2.jpg]
+          </div>
+        </div>
+        <div class="bg-[var(--color-surface)] rounded-xl overflow-hidden card-hover" style="aspect-ratio: 4/3;">
+          <div class="w-full h-full flex items-center justify-center" style="background-color: var(--color-surface); color: var(--color-text-muted);">
+            [Bild: dish-3.jpg]
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- TESTIMONIALS -->
+  <section class="section-spacing" style="background-color: var(--color-surface);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl sm:text-5xl font-bold text-center mb-16" style="color: var(--color-primary); font-family: var(--font-heading);">
+        Was unsere Gäste sagen
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-8 rounded-xl card-hover" style="background-color: var(--color-background); border: 1px solid var(--color-border);">
+          <div class="flex gap-1 mb-4">
+            <span style="color: var(--color-secondary);">★★★★★</span>
+          </div>
+          <p class="mb-6 italic" style="color: var(--color-text);">
+            "Das beste Restaurant in der Stadt! Jedes Gericht ist ein Meisterwerk. Wir kommen jeden Monat wieder."
+          </p>
+          <p class="font-semibold" style="color: var(--color-primary);">Maria S.</p>
+          <p style="color: var(--color-text-muted);">Stammgästin seit 8 Jahren</p>
+        </div>
+        <div class="p-8 rounded-xl card-hover" style="background-color: var(--color-background); border: 1px solid var(--color-border);">
+          <div class="flex gap-1 mb-4">
+            <span style="color: var(--color-secondary);">★★★★★</span>
+          </div>
+          <p class="mb-6 italic" style="color: var(--color-text);">
+            "Frische Zutaten, liebevolle Zubereitung und Personal mit Herz. Das ist echte Gastfreundschaft."
+          </p>
+          <p class="font-semibold" style="color: var(--color-primary);">Thomas K.</p>
+          <p style="color: var(--color-text-muted);">Hochzeit hier gefeiert</p>
+        </div>
+        <div class="p-8 rounded-xl card-hover" style="background-color: var(--color-background); border: 1px solid var(--color-border);">
+          <div class="flex gap-1 mb-4">
+            <span style="color: var(--color-secondary);">★★★★★</span>
+          </div>
+          <p class="mb-6 italic" style="color: var(--color-text);">
+            "Hier schmeckt man die Handschrift des Küchenchefs. Ein Ort, an dem sich gutes Essen anfühlt wie Heimat."
+          </p>
+          <p class="font-semibold" style="color: var(--color-primary);">Anna & Familie</p>
+          <p style="color: var(--color-text-muted);">Regelmäßige Gäste</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- STATS / NUMBERS -->
+  <section class="section-spacing" style="background-color: var(--color-primary);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-5xl font-bold mb-2" style="color: var(--color-secondary);">15+</div>
+          <p style="color: var(--color-accent);">Jahre Leidenschaft</p>
+        </div>
+        <div>
+          <div class="text-5xl font-bold mb-2" style="color: var(--color-secondary);">4.8★</div>
+          <p style="color: var(--color-accent);">Durchschnittliche Bewertung</p>
+        </div>
+        <div>
+          <div class="text-5xl font-bold mb-2" style="color: var(--color-secondary);">200+</div>
+          <p style="color: var(--color-accent);">Treue Stammgäste</p>
+        </div>
+        <div>
+          <div class="text-5xl font-bold mb-2" style="color: var(--color-secondary);">365</div>
+          <p style="color: var(--color-accent);">Tage der Woche offen</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- CTA WITH RESERVATION FORM -->
+  <section id="reservation" class="section-spacing" style="background-color: var(--color-background);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-4xl sm:text-5xl font-bold mb-6" style="color: var(--color-primary); font-family: var(--font-heading);">
+            Reservierung
+          </h2>
+          <p class="text-lg mb-8" style="color: var(--color-text);">
+            Sichern Sie sich einen Platz an unserem Tisch. Wir freuen uns auf Sie.
+          </p>
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start gap-4">
+              <span style="color: var(--color-secondary); font-size: 24px;">📍</span>
+              <div>
+                <p class="font-semibold" style="color: var(--color-primary);">Adresse</p>
+                <p style="color: var(--color-text-muted);">Frische Straße 42, 12345 Genussstadt</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span style="color: var(--color-secondary); font-size: 24px;">📞</span>
+              <div>
+                <p class="font-semibold" style="color: var(--color-primary);">Telefon</p>
+                <p style="color: var(--color-text-muted);">(123) 456-7890</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <span style="color: var(--color-secondary); font-size: 24px;">🕐</span>
+              <div>
+                <p class="font-semibold" style="color: var(--color-primary);">Öffnungszeiten</p>
+                <p style="color: var(--color-text-muted);">Mo–So: 11:30–23:00 Uhr<br>Mittwoch Ruhetag</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-[var(--color-surface)] p-8 rounded-2xl" style="border: 2px solid var(--color-border);">
+          <form class="space-y-4" onsubmit="event.preventDefault(); alert('Reservierung gesendet!');">
+            <input type="text" placeholder="Ihr Name" class="w-full px-4 py-3 rounded-lg" style="border: 1px solid var(--color-border); background-color: var(--color-background);" required>
+            <input type="email" placeholder="E-Mail-Adresse" class="w-full px-4 py-3 rounded-lg" style="border: 1px solid var(--color-border); background-color: var(--color-background);" required>
+            <input type="tel" placeholder="Telefon" class="w-full px-4 py-3 rounded-lg" style="border: 1px solid var(--color-border); background-color: var(--color-background);" required>
+            <div class="grid grid-cols-2 gap-4">
+              <input type="date" class="px-4 py-3 rounded-lg" style="border: 1px solid var(--color-border); background-color: var(--color-background);" required>
+              <input type="time" class="px-4 py-3 rounded-lg" style="border: 1px solid var(--color-border); background-color: var(--color-background);" required>
+            </div>
+            <select class="w-full px-4 py-3 rounded-lg" style="border: 1px solid var(--color-border); background-color: var(--color-background);" required>
+              <option value="">Anzahl Personen</option>
+              <option value="1">1 Person</option>
+              <option value="2">2 Personen</option>
+              <option value="4">4 Personen</option>
+              <option value="6">6 Personen</option>
+              <option value="8">8+ Personen</option>
+            </select>
+            <textarea placeholder="Spezielle Wünsche (z.B. Fensterplatz, Allergien)" rows="3" class="w-full px-4 py-3 rounded-lg" style="border: 1px solid var(--color-border); background-color: var(--color-background);"></textarea>
+            <button type="submit" class="w-full py-3 rounded-lg font-semibold text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1" style="background-color: var(--color-primary);">
+              Reservierung anfragen
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="section-spacing" style="background-color: var(--color-surface);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-4xl sm:text-5xl font-bold mb-6" style="color: var(--color-primary); font-family: var(--font-heading);">
+        Kontakt & Anfragen
+      </h2>
+      <p class="text-lg mb-12" style="color: var(--color-text-muted);">
+        Haben Sie Fragen zu Catering, Events oder Reservierungen? Kontaktieren Sie uns gerne!
+      </p>
+      <div class="max-w-2xl mx-auto bg-[var(--color-background)] p-8 rounded-2xl">
+        <form class="space-y-4" onsubmit="event.preventDefault(); alert('Nachricht gesendet!');">
+          <input type="text" placeholder="Ihr Name" class="w-full px-4 py-3 rounded-lg" style="border: 1px solid var(--color-border); background-color: var(--color-surface);" required>
+          <input type="email" placeholder="E-Mail-Adresse" class="w-full px-4 py-3 rounded-lg" style="border: 1px solid var(--color-border); background-color: var(--color-surface);" required>
+          <select class="w-full px-4 py-3 rounded-lg" style="border: 1px solid var(--color-border); background-color: var(--color-surface);">
+            <option value="">Anliegen auswählen</option>
+            <option value="catering">Catering-Anfrage</option>
+            <option value="event">Event-Buchung</option>
+            <option value="feedback">Feedback & Lob</option>
+            <option value="other">Sonstiges</option>
+          </select>
+          <textarea placeholder="Ihre Nachricht" rows="5" class="w-full px-4 py-3 rounded-lg" style="border: 1px solid var(--color-border); background-color: var(--color-surface);"></textarea>
+          <button type="submit" class="w-full py-3 rounded-lg font-semibold text-white transition-all duration-300 hover:shadow-lg" style="background-color: var(--color-primary);">
+            Nachricht senden
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer class="bg-[var(--color-text)] text-[var(--color-accent)] py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h3 class="font-bold text-lg mb-4" style="font-family: var(--font-heading);">sdasd</h3>
+          <p class="text-sm opacity-80">Authentische Küche, handwerkliche Qualität, herzlicher Service seit 15 Jahren.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Navigation</h4>
+          <ul class="space-y-2 text-sm opacity-80">
+            <li><a href="#about" class="hover:text-white transition">Über uns</a></li>
+            <li><a href="#menu" class="hover:text-white transition">Angebot</a></li>
+            <li><a href="#gallery" class="hover:text-white transition">Galerie</a></li>
+            <li><a href="#contact" class="hover:text-white transition">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Kontakt</h4>
+          <p class="text-sm opacity-80">Frische Straße 42<br>12345 Genussstadt</p>
+          <p class="text-sm opacity-80 mt-2">(123) 456-7890<br>info@sdasd.de</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Öffnungszeiten</h4>
+          <p class="text-sm opacity-80">Mo–Di: 11:30–23:00<br>Mi: Geschlossen<br>Do–So: 11:30–23:00</p>
+        </div>
+      </div>
+      <div class="border-t border-[var(--color-accent)] border-opacity-30 pt-8 flex flex-col md:flex-row justify-between items-center text-xs opacity-70">
+        <p>&copy; 2024 sdasd. Alle Rechte vorbehalten.</p>
+        <div class="flex gap-6 mt-4 md:mt-0">
+          <a href="/impressum.html" class="hover:text-white transition">Impressum</a>
+          <a href="/datenschutz.html" class="hover:text-white transition">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- SCHEMA.ORG -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "sdasd",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Frische Straße 42",
+      "addressLocality": "Genussstadt",
+      "postalCode": "12345",
+      "addressCountry": "DE"
+    },
+    "telephone": "(123) 456-7890",
+    "url": "https://sdasd.de",
+    "priceRange": "€€",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "200"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday"],
+        "opens": "11:30",
+        "closes": "23:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Wednesday",
+        "opens": "00:00",
+        "closes": "00:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "11:30",
+        "closes": "23:00"
+      }
+    ]
+  }
+  </script>
+  <!-- COOKIE BANNER & CONSENT -->
+  <div id="cookieBanner" class="fixed bottom-0 left-0 right-0 bg-[var(--color-text)] text-[var(--color-accent)] p-6 z-40" style="display: none;">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-6 items-center justify-between">
+      <p class="text-sm flex-1">Wir nutzen Cookies für bessere Nutzererfahrung. Mit Klick akzeptieren Sie unsere <a href="/datenschutz.html" class="underline">Datenschutzrichtlinie</a>.</p>
+      <div class="flex gap-4">
+        <button onclick="rejectCookies()" class="px-6 py-2 text-sm border rounded-lg hover:bg-opacity-80 transition">Ablehnen</button>
+        <button onclick="acceptCookies()" class="px-6 py-2 text-sm rounded-lg text-[var(--color-text)]" style="background-color: var(--color-secondary);">Akzeptieren</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    function acceptCookies() {
+      localStorage.setItem('cookieConsent', 'accepted');
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+    function rejectCookies() {
+      localStorage.setItem('cookieConsent', 'rejected');
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+    if (!localStorage.getItem('cookieConsent')) {
+      document.getElementById('cookieBanner').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
